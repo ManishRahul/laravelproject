@@ -32,5 +32,14 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        $user->roles()->attach($data['role_id']);
     }
+
+    public function createIt(Request $request)
+    {
+            $roles=Role::orderBy('role_name')->pluck('role_name','id');
+            return view('auth.register',compact('roles')); 
+    }
+
 }

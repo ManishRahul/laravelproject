@@ -9,7 +9,6 @@ use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\PDFController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -108,3 +107,7 @@ Route::get('/export-excel',[EmployeeController::class,'exportIntoExcel']);
 //Just wanna check if im able to fetch users table data
 // Route::get('login-fetch',[UserController::class,'fetchLogindata']);
 Route::view('test-page','test');
+// Route::get('set-role',[RoleController::class,'showRoleSetPage']);
+// Route::post('add-role',[RoleController::class,'addrole']);
+
+

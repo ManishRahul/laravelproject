@@ -37,7 +37,7 @@ public function storeEmployee(Request $req){
 
     $emp = new Employee;
     
-    $emp->fname = $req->fname;
+    $emp->fname = $req->fname;    
     $emp->lname = $req->lname;
     $emp->gender = $req->gender;
     $emp->email = $req->email;
