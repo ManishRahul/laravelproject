@@ -10,14 +10,14 @@
 </div>
 <br>
 <div>
-<input type="checkbox" id="create" name="permissions[]" value="create">
-<label for="create"> Create</label><br>
-<input type="checkbox" id="edit" name="permissions[]" value="edit">
-<label for="edit"> Edit</label><br>
-<input type="checkbox" id="delete" name="permissions[]" value="delete">
-<label for="delete"> Delete</label><br>
-<input type="checkbox" id="v_list" name="permissions[]" value="v_list">
-<label for="v_list"> View Employee list</label><br>
+<input type="checkbox" id="create" name="permissions[]" value="1">
+<label for="create">Create</label><br>
+<input type="checkbox" id="edit" name="permissions[]" value="2">
+<label for="edit">Edit</label><br>
+<input type="checkbox" id="delete" name="permissions[]" value="3">
+<label for="delete">Delete</label><br>
+<input type="checkbox" id="v_list" name="permissions[]" value="4">
+<label for="v_list">View Employee list</label><br>
 </div>
 <br>
 <div>

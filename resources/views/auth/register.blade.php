@@ -32,8 +32,8 @@
             <div class="mt-4">
                 <x-jet-label for="role" value="{{ __('Set Role') }}" />
                 <select name="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                    <option value="1">Admin</option>
-                    <option value="2">Employee</option>
+                    <option value="1">SuperAdmin</option>
+                    <option value="2">Admin</option>
                 </select>
             </div>
 

@@ -87,7 +87,7 @@
           </li>
 
             @can("admin")
-
+            {{Debugbar::info("Enterend the can")}}
             <li class="nav-item">
           <a class="dropdown-btn nav-link js-scroll-trigger">Admin Access 
             <i class="fa fa-caret-down"></i>

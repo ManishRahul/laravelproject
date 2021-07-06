@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Role;
+use Debugbar;
 
 class User extends Authenticatable
 {
@@ -61,6 +62,19 @@ class User extends Authenticatable
     ];
 
     public function roles(){
-        return $this->belongsToMany(Role::class,'role_users');
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function hasRoles($rolename){
+        foreach($this->roles as $role)
+        {
+            Debugbar::info($role->role_name);
+            if($role->role_name === $rolename){
+                Debugbar::info($role->role_name);
+                return true;
+            }
+        }
+        Debugbar::info("Dint execute this");
+        // return false;
     }
 }
