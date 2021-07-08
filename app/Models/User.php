@@ -75,6 +75,6 @@ class User extends Authenticatable
             }
         }
         Debugbar::info("Dint execute this");
-        // return false;
+        return false;
     }
 }
