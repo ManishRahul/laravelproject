@@ -16,4 +16,18 @@ class Employee extends Model
         $records = DB::table('employees')->select('id','fname','lname','gender','email','phone','designation','salary')->get()->toArray();
         return $records;
     }
+
+    public function qualifications(){
+        return $this->hasMany(Qualification::class, 'emp_id');
+    }
+
+    public function experiences(){
+        return $this->hasMany(Experience::class, 'emp_id');
+    }
+
+
+
+    public function family(){
+        return $this->hasMany(Family::class);
+    }
 }

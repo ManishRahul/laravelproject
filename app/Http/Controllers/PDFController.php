@@ -17,17 +17,32 @@ class PDFController extends Controller
         // ->where('qualifications.emp_id',$employeeID)
         // ->first();
         // print_r($ename_qualifications->lname);
-        $ename_qualifications = Employee::where("id", $employeeID)->first();
+        $employee = Employee::where("id", $employeeID)->first();
+
+        // $qualification = Employee::where("id", $employeeID)->qualifications;
+        // $experience = Employee::where("id", $employeeID)->experiences;
+
+        //$qualification = Employee::find(1)->qualifications;
+        // $employee->qualifications;
+
+        $experience = Employee::find(1)->experiences;
+
+
+
 
         $this->fpdf = new Fpdf;
         $this->fpdf->AddPage("L", ['100', '100']);
         $this->fpdf->SetFont('Helvetica','',10);    
         $this->fpdf->Text(5, 5, "Three38 Innovation Cafe");   
-        $this->fpdf->Text(10, 15, "Fullname : $ename_qualifications->fname $ename_qualifications->lname");       
-        $this->fpdf->Text(10, 20, "Email : $ename_qualifications->email");   
-        $this->fpdf->Text(10, 25, "Phone no. : $ename_qualifications->phone");
-        $this->fpdf->Text(10, 30, "Designation : $ename_qualifications->designation");
-        $this->fpdf->Text(10, 35, "Salary : $ename_qualifications->salary");
+        $this->fpdf->Text(10, 15, "Fullname : $employee->fname $employee->lname");       
+        $this->fpdf->Text(10, 20, "Email : $employee->email");   
+        $this->fpdf->Text(10, 25, "Phone no. : $employee->phone");
+        $this->fpdf->Text(10, 30, "Designation : $employee->designation");
+        $this->fpdf->Text(10, 35, "Salary : $employee->salary");
+        foreach($employee->qualifications as $qualification ){
+        $this->fpdf->Text(10, 40, "College : $qualification->college");
+        }
+        // $this->fpdf->Text(10, 45, "Organization : $experience->organization");
         $this->fpdf->Output();
         exit;
     }

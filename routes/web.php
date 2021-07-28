@@ -40,12 +40,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     return view('about-company');
 })->name('about-company');
 
+//Registeration Page
+// Route::get('register',[RoleController::class,'retriveRoles']); 
+
 //To add an Employee
 Route::get('addemp',[EmployeeController::class,'addEmployee']); 
 Route::post('storeemp',[EmployeeController::class,'storeEmployee']);
 
 //To display Employees
-Route::get('fetchemp',[EmployeeController::class,'retriveEmployee']);
+Route::get('fetchemp',[EmployeeController::class,'retriveEmployee'])->middleware('admins');
 
 //To delete and update Employee
 Route::get('delete-emp/{id}',[EmployeeController::class,'deleteEmployee']);
@@ -54,9 +57,9 @@ Route::post('update-emp',[EmployeeController::class,'updateEmployee']);
 Route::get('pdf-emp/{id}',[PDFController::class,'createPDF']);
 
 //Admin view Qualification, Experience, Family
-Route::get('display-qualifications_to_admin',[QualificationController::class,'displayQualificationsToAdmin']);
-Route::get('display-experiences_to_admin',[ExperienceController::class,'displayExperiencesToAdmin']);
-Route::get('display-family_to_admin',[FamilyController::class,'displayFamiliesToAdmin']);
+Route::get('display-qualifications_to_admin',[QualificationController::class,'displayQualificationsToAdmin'])->middleware('admins');;
+Route::get('display-experiences_to_admin',[ExperienceController::class,'displayExperiencesToAdmin'])->middleware('admins');;
+Route::get('display-family_to_admin',[FamilyController::class,'displayFamiliesToAdmin'])->middleware('admins');;
 
 
 //Employee can view his Profile
@@ -94,6 +97,14 @@ Route::post('import',[EmployeeController::class,'import'])->name('employee.impor
 //Export Excel
 Route::get('/export-excel',[EmployeeController::class,'exportIntoExcel']);
 
+//Roles
+Route::get('set-role',[RoleController::class,'showRoleSetPage']);
+Route::post('add-role',[RoleController::class,'addrole']);
+Route::get('get-roles',[RoleController::class,'retriveRoles']);
+Route::get('show-role-to-edit/{id}',[RoleController::class,'showRoleToEdit']);
+Route::post('edit-role',[RoleController::class,'editRole']);
+Route::get('delete-role/{id}',[RoleController::class,'deleteRole']);
+
 });
 
 // Route::get('addemp',[EmployeeController::class,'addEmployee']); 
@@ -109,7 +120,5 @@ Route::get('/export-excel',[EmployeeController::class,'exportIntoExcel']);
 //Just wanna check if im able to fetch users table data
 // Route::get('login-fetch',[UserController::class,'fetchLogindata']);
 Route::view('test-page','test');
-Route::get('set-role',[RoleController::class,'showRoleSetPage']);
-Route::post('add-role',[RoleController::class,'addrole']);
-
+Route::get('get-admins',[UserController::class,'admins']);
 

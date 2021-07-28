@@ -16,6 +16,19 @@ class Role extends Model
     }
 
     public function permissions(){
-        return $this->belongsToMany(Permission::class,'role_permission');
+        return $this->belongsToMany(Permission::class, RolePermission::class);
     }
+
+    // public function hasPermissions($roleid){
+    //     foreach($this->permissions as $permission)
+    //     {
+    //         Debugbar::info($permission->role_id);
+    //         if($permission->role_id === $roleid){
+    //             Debugbar::info("Permission allowed");
+    //             return true;
+    //         }
+    //     }
+    //     Debugbar::info("Dint execute this");
+    //     return false;
+    // }
 }

@@ -62,13 +62,12 @@ class User extends Authenticatable
     ];
 
     public function roles(){
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class, RoleUser::class);
     }
 
     public function hasRoles($rolename){
         foreach($this->roles as $role)
         {
-            Debugbar::info($role->role_name);
             if($role->role_name === $rolename){
                 Debugbar::info($role->role_name);
                 return true;
@@ -76,5 +75,22 @@ class User extends Authenticatable
         }
         Debugbar::info("Dint execute this");
         return false;
+<<<<<<< HEAD
+=======
+    }
+
+    public function hasPermissions($roleid){
+        $role = new Role;
+        foreach($role->permissions as $permission)
+        {
+            Debugbar::info($permission->role_id);
+            if($permission->role_id === $roleid){
+                Debugbar::info("Permission allowed");
+                return true;
+            }
+        }
+        Debugbar::info("Dint execute this");
+        return false;
+>>>>>>> e7f4355 (Added Roles and Permissions with Policies)
     }
 }

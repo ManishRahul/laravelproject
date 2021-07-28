@@ -31,4 +31,19 @@ class UserController extends Controller
         return view("emp-profile", ["empObj"=> $employeeObject]);
         
     }
+
+    public function admins(){
+        $users = User::all();
+        return view("view-admins", ["users" => $users]);
+        // foreach($users as $user){
+        //     $users_roles = $user->roles;
+           
+
+            // foreach($users_roles as $user_role){
+            //     if($user_role->role_name == "SuperAdmin"|| $user_role->role_name == "Admin" || $user_role->role_name == "Employee"){
+            //         echo $user_role->id;
+            //     }
+            // }
+        // }
+    }
 }

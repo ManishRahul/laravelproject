@@ -60,11 +60,11 @@
             <a class="nav-link js-scroll-trigger" href="about-company">About</a>
           </li>
 
-         
+         @can('permissions.viewprofile')
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="profile">My Profile</a>
           </li>
-
+          @endcan
           <!-- <li class="nav-item" data-target="#bio">
             <a class="nav-link js-scroll-trigger" href="#skills">My Bio</a>
           </li>
@@ -74,42 +74,55 @@
                     <li class="nav-item"><a href="#" class="nav-link js-scroll-trigger">General</a></li>
                     <li class="nav-item"><a href="#" class="nav-link js-scroll-trigger">Buttons</a></li>
           </ul> -->
-          
+
+
           <li class="nav-item">
           <a class="dropdown-btn nav-link js-scroll-trigger">My Bio 
             <i class="fa fa-caret-down"></i>
           </a>
           <div class="dropdown-container">
-            <a class="nav-link js-scroll-trigger" href="emp-qualification">Qualification</a><br>
-            <a class="nav-link js-scroll-trigger" href="emp-experience">Experiences</a><br>
-            <a class="nav-link js-scroll-trigger" href="emp-fam">Family Details</a><br>
+            <a class="nav-link js-scroll-trigger" href="emp-qualification">Qualification</a>
+            <a class="nav-link js-scroll-trigger" href="emp-experience">Experiences</a>
+            <a class="nav-link js-scroll-trigger" href="emp-fam">Family Details</a>
           </div>
           </li>
 
-            @can("admin")
-            {{Debugbar::info("Enterend the can")}}
+          @can('permissions.view')
+            
             <li class="nav-item">
           <a class="dropdown-btn nav-link js-scroll-trigger">Admin Access 
             <i class="fa fa-caret-down"></i>
           </a>
           <div class="dropdown-container">
-            <a class="nav-link js-scroll-trigger" href="fetchemp">View Employees</a><br>
-            <a class="nav-link js-scroll-trigger" href="display-qualifications_to_admin">View Employee Qualification</a><br>
-            <a class="nav-link js-scroll-trigger" href="display-experiences_to_admin">View Employee Experience</a><br>
-            <a class="nav-link js-scroll-trigger" href="display-family_to_admin">View Employee Family</a><br>
-
+          
+            <a class="nav-link js-scroll-trigger" href="fetchemp">View Employees</a>
+          
+            <a class="nav-link js-scroll-trigger" href="display-qualifications_to_admin">View Emp Qualification</a>
+            <a class="nav-link js-scroll-trigger" href="display-experiences_to_admin">View Emp Experience</a>
+            <a class="nav-link js-scroll-trigger" href="display-family_to_admin">View Employee Family</a>
           </div>
           </li>
+          @endcan
 
+          @can('permissions.create')
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="addemp">Add Employee</a>
           </li>
+          @endcan
 
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Admin Access</a>
-          </li> -->
-          
-            @endcan
+          @can('permissions.createrole')
+          <li class="nav-item">
+          <a class="dropdown-btn nav-link js-scroll-trigger">SuperAdmin Access 
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <div class="dropdown-container">
+            <a class="nav-link js-scroll-trigger" href="set-role">Create Role</a>
+            <a class="nav-link js-scroll-trigger" href="get-roles">View Roles</a>
+            <a class="nav-link js-scroll-trigger" href="get-roles">View Admins</a>
+          </div>
+          </li>
+          @endcan
+
         </ul>
       </div>
     </nav>

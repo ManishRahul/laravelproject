@@ -12,14 +12,14 @@ class EmployeeController extends Controller
 {
     //
     public function addEmployee(){
-        if(Gate::denies('admin')){
+        if(Gate::denies('permissions.create')){
             abort(403);
         }
         return view("add-emp");
 }
 
 public function storeEmployee(Request $req){
-    if(Gate::denies('admin')){
+    if(Gate::denies('permissions.create')){
         abort(403);
     }
     if($req->isMethod("post")){
@@ -55,7 +55,7 @@ public function storeEmployee(Request $req){
 }
 
 public function retriveEmployee(){
-    if(Gate::denies('admin')){
+    if(Gate::denies('permissions.view')){
         abort(403);
     }
 
