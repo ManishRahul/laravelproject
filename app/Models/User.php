@@ -75,8 +75,6 @@ class User extends Authenticatable
         }
         Debugbar::info("Dint execute this");
         return false;
-<<<<<<< HEAD
-=======
     }
 
     public function hasPermissions($roleid){
@@ -91,6 +89,5 @@ class User extends Authenticatable
         }
         Debugbar::info("Dint execute this");
         return false;
->>>>>>> e7f4355 (Added Roles and Permissions with Policies)
     }
 }

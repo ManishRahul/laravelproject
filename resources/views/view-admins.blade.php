@@ -44,7 +44,7 @@
         
         
         <td>
-        <a href="show-role-to-edit/{{$role->id}}" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        <a href="show-role-to-edit" class="btn btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
         <a href="delete-role" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
         </td>
     </tr>

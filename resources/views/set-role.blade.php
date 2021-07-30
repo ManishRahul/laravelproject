@@ -12,7 +12,7 @@
 @csrf
 <div>
 <label for="create">Enter a new Role : </label><br>
-<input type="text" id="role" name="role" />
+<input type="text" id="role" name="role" required/>
 </div>
 <br>
 <div>
@@ -24,8 +24,11 @@
 <label for="delete">Delete</label><br>
 <input type="checkbox" id="v_list" name="permissions[]" value="4">
 <label for="v_list">View Employee list</label><br>
-<input type="checkbox" checked="true" id="v_list" name="permissions[]" value="5">
+<input type="checkbox" id="v_list" name="permissions[]" value="5">
+<label for="v_profile">Create Roles</label><br>
+<input type="checkbox" checked="true" id="v_list" name="permissions[]" value="6">
 <label for="v_profile">View Profile</label><br>
+
 </div>
 <br>
 <div>

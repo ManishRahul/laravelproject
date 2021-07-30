@@ -11,7 +11,19 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
     public function showRoleSetPage(){
-        return view("set-role");
+        $permissions = Permission::all();
+        return view('set-role',["permissions"=>$permissions]);
+    }
+
+    public function addPermission(Request $req)
+    {
+        $permission = new Permission;
+        $permission->permission_name = $req->permission;
+
+        $permission->save();
+        echo("Saved Successfully");
+
+        return redirect("set-role");
     }
 
     public function addrole(Request $req)
@@ -37,7 +49,7 @@ class RoleController extends Controller
 
         }
         
-        echo("Saved Successfully");
+        return redirect('set-role');
         
     }
 

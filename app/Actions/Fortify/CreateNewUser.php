@@ -53,7 +53,7 @@ class CreateNewUser implements CreatesNewUsers
         //     'role_id' => $input['role_id'],
         // ]);
 
-        return $create_user;
+        // return $create_user;
         // return [$create_user, $role_user];
 
 

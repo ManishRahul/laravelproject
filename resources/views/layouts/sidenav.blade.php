@@ -44,6 +44,15 @@
 
   <body id="page-top">
 
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <ul class="navbar-nav ml-auto">
+  <form method="POST" action="logout">
+                  @csrf
+                  <button type="submit" class="btn btn-primary">Logout</button>
+              </form>
+  </ul>
+</nav>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">Start Bootstrap</span>
@@ -57,12 +66,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="about-company">About</a>
+            <a class="nav-link js-scroll-trigger" href="/about-company">About</a>
           </li>
 
          @can('permissions.viewprofile')
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="profile">My Profile</a>
+            <a class="nav-link js-scroll-trigger" href="/profile">My Profile</a>
           </li>
           @endcan
           <!-- <li class="nav-item" data-target="#bio">
@@ -81,9 +90,9 @@
             <i class="fa fa-caret-down"></i>
           </a>
           <div class="dropdown-container">
-            <a class="nav-link js-scroll-trigger" href="emp-qualification">Qualification</a>
-            <a class="nav-link js-scroll-trigger" href="emp-experience">Experiences</a>
-            <a class="nav-link js-scroll-trigger" href="emp-fam">Family Details</a>
+            <a class="nav-link js-scroll-trigger" href="/emp-qualification">Qualification</a>
+            <a class="nav-link js-scroll-trigger" href="/emp-experience">Experiences</a>
+            <a class="nav-link js-scroll-trigger" href="/emp-fam">Family Details</a>
           </div>
           </li>
 
@@ -95,18 +104,18 @@
           </a>
           <div class="dropdown-container">
           
-            <a class="nav-link js-scroll-trigger" href="fetchemp">View Employees</a>
+            <a class="nav-link js-scroll-trigger" href="/fetchemp">View Employees</a>
           
-            <a class="nav-link js-scroll-trigger" href="display-qualifications_to_admin">View Emp Qualification</a>
-            <a class="nav-link js-scroll-trigger" href="display-experiences_to_admin">View Emp Experience</a>
-            <a class="nav-link js-scroll-trigger" href="display-family_to_admin">View Employee Family</a>
+            <a class="nav-link js-scroll-trigger" href="/display-qualifications_to_admin">View Emp Qualification</a>
+            <a class="nav-link js-scroll-trigger" href="/display-experiences_to_admin">View Emp Experience</a>
+            <a class="nav-link js-scroll-trigger" href="/display-family_to_admin">View Employee Family</a>
           </div>
           </li>
           @endcan
 
           @can('permissions.create')
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="addemp">Add Employee</a>
+            <a class="nav-link js-scroll-trigger" href="/addemp">Add Employee</a>
           </li>
           @endcan
 
@@ -116,9 +125,10 @@
             <i class="fa fa-caret-down"></i>
           </a>
           <div class="dropdown-container">
-            <a class="nav-link js-scroll-trigger" href="set-role">Create Role</a>
-            <a class="nav-link js-scroll-trigger" href="get-roles">View Roles</a>
-            <a class="nav-link js-scroll-trigger" href="get-roles">View Admins</a>
+            <a class="nav-link js-scroll-trigger" href="register">Register User</a>
+            <a class="nav-link js-scroll-trigger" href="/set-role">Create Role</a>
+            <a class="nav-link js-scroll-trigger" href="/get-roles">View Roles</a>
+            <a class="nav-link js-scroll-trigger" href="/get-admins">View Admins</a>
           </div>
           </li>
           @endcan
